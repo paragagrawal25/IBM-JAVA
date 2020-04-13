@@ -26,7 +26,7 @@ public class AccountRepositoryImpl implements AccountRepository
 	@Override
 	public Account createAccount(Account account) 
 	{
-		String query = "insert into account(accountNumber,accountType,balance) values('" 
+		String query = "insert into account(accountNumber,accountType,initialBalance) values('" 
 						+account.getAccountNumber()+"','" 
 						+account.getAccountType()+"',"+account.getInitialBalance()+")";
 		jdbcTemplate.update(query);
