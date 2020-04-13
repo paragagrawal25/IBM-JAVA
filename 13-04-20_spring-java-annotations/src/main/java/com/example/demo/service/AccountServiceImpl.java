@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.bean.Account;
 import com.example.demo.repo.AccountRepository;
+import com.example.exceptions.AccNotFoundException;
 
 @Service
 public class AccountServiceImpl implements AccountService
@@ -35,6 +36,12 @@ public class AccountServiceImpl implements AccountService
 	public Account findByAccountNumber(String accountNumber) 
 	{
 		return accRepo.findByAccountNumber(accountNumber);
+	}
+
+	@Override
+	public int updateByAccountNumber(Account account) throws AccNotFoundException 
+	{
+		return accRepo.updateByAccountNumber(account);
 	}
 
 }

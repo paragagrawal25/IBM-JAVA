@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.bean.Account;
 import com.example.demo.bean.AccountRowMapper;
+import com.example.exceptions.AccNotFoundException;
 
 @Repository
 public class AccountRepositoryImpl implements AccountRepository
@@ -47,6 +49,21 @@ public class AccountRepositoryImpl implements AccountRepository
 		Account account = jdbcTemplate.queryForObject("select * from account where accountNumber=?", 
 							new Object[] {accountNumber},new AccountRowMapper());
 		return account;
+	}
+
+	@Override
+	public int updateByAccountNumber(Account account) throws AccNotFoundException
+	{
+		String UPDATE_QUERY = "UPDATE ACCOUNT SET accountType=?, initialBalance=? where accountNumber=?";
+		/*Account account1 = jdbcTemplate.queryForObject(UPDATE_QUERY, new Object[] {account.getAccountType(), account.getInitialBalance(),
+							account.getAccountNumber()}, new AccountRowMapper());*/
+		
+		int updateRowCount = jdbcTemplate.update(UPDATE_QUERY, account.getAccountType(), account.getInitialBalance(), account.getAccountNumber());
+		
+		if(updateRowCount <= 0)
+			throw new AccNotFoundException("NO RECORD IS FOUND BY THIS ACCOUNT NUMBER "+account.getAccountNumber());
+
+		return updateRowCount;
 	}
 
 }
