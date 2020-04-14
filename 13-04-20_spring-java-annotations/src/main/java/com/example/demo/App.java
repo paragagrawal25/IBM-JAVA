@@ -2,6 +2,7 @@ package com.example.demo;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Scanner;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -80,8 +81,20 @@ public class App
 
 	private static void openMenu() 
 	{
+		Scanner input = new Scanner(System.in);
+		
 		System.out.println("----------BANK ACCOUNT OPENING FORM----------");
 		System.out.println("1. CREATE ACCOUNT\n2. GET ALL ACCOUNTS\n3. FIND BY ACCOUNT NUMBER\n4. UPDATE BY ACCOUNT NUMBER");
 		
+		do
+		{
+			System.out.println("PLEASE ENTER YOUR CHOICE");
+			int iChoice = input.nextInt();
+			switch(iChoice)
+			{
+			case 1:
+			}
+		}
+		while();
 	}
 }
