@@ -2,7 +2,6 @@ package com.example.demo;
 
 import java.util.List;
 import java.util.Scanner;
-import java.util.UUID;
 
 import com.example.demo.entity.Customer;
 import com.example.demo.service.CustomerService;
@@ -35,7 +34,7 @@ public class App
         			System.out.println("ENTER CUSTOMER EMAIL ID");
         			custEmail = input.next();
         			Customer customer = new Customer();
-        			customer.setCustomerID(UUID.randomUUID().toString());
+        			//customer.setCustomerID(UUID.randomUUID().toString());
         			customer.setCustomerName(custName);
         			customer.setCustomerEmail(custEmail);
         			customer.setActive(true);

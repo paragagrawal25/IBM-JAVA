@@ -10,8 +10,9 @@ import lombok.Data;
 public class Customer 
 {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="customer_id")
-	private String customerID;
+	private int customerID;
 	
 	@Column(name="customer_name")
 	private String customerName;
