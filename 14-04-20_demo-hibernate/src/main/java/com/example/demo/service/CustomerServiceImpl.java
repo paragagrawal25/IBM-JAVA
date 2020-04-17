@@ -27,7 +27,7 @@ public class CustomerServiceImpl implements CustomerService
 	}
 
 	@Override
-	public Customer getCustomerByID(String customerID) 
+	public Customer getCustomerByID(int customerID) 
 	{
 		return customerDAO.getCustomerByID(customerID);
 	}

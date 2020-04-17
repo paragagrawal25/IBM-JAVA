@@ -8,5 +8,5 @@ public interface CustomerDAO
 {
 	public Customer createCustomer(Customer customer);
 	public List<Customer> getAllCustomers();
-	public Customer getCustomerByID(String customerID);
+	public Customer getCustomerByID(int customerID);
 }

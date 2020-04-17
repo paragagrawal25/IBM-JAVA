@@ -50,7 +50,7 @@ public class App
         			break;
         		case 3:
         			System.out.print("ENTER CUSTOMER ID : ");
-        			String custID = input.next();
+        			int custID = input.nextInt();
         			Customer objCust = customerService.getCustomerByID(custID);
         			if(objCust == null)
         				System.err.println("NO CUSTOMER FOUND BY GIVEN CUSTOMER ID");

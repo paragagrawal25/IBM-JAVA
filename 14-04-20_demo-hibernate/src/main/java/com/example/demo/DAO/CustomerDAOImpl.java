@@ -19,7 +19,7 @@ public class CustomerDAOImpl implements CustomerDAO
 	{
 		factory = new MyHibernateFactory();
 		sessionFactory = factory.getSessionFactory();
-		session = sessionFactory.getCurrentSession();
+		session = sessionFactory.openSession();
 		transaction = session.getTransaction();
 	}
 	
@@ -35,14 +35,12 @@ public class CustomerDAOImpl implements CustomerDAO
 	@Override
 	public List<Customer> getAllCustomers() 
 	{
-		transaction.begin();
 		List<Customer> listCustomer = session.createQuery("from Customer",Customer.class).list();
-		transaction.commit();
 		return listCustomer;
 	}
 
 	@Override
-	public Customer getCustomerByID(String customerID) 
+	public Customer getCustomerByID(int customerID) 
 	{
 		return session.get(Customer.class,customerID);
 	}
