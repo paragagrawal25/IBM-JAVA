@@ -4,16 +4,30 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  
   <servlet>
   	<servlet-name>ListLeagueServlet</servlet-name>
   	<display-name>ListLeagueServlet</display-name>
-  	<description></description>
+  	<!-- <description></description> -->
   	<servlet-class>com.example.ListLeagueServlet</servlet-class>
   </servlet>
+  
   <servlet-mapping>
   	<servlet-name>ListLeagueServlet</servlet-name>
   	<url-pattern>/list_leagues.view</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AddLeagueServlet</servlet-name>
+  	<display-name>AddLeagueServlet</display-name>
+  	<servlet-class>com.example.AddLeagueServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>AddLeagueServlet</servlet-name>
+  	<url-pattern>/add_league</url-pattern>
+  </servlet-mapping>
+  
   <welcome-file-list>
   	<welcome-file>welcome.html</welcome-file>
   </welcome-file-list>
