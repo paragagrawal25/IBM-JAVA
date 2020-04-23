@@ -1,0 +1,9 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: sample-spring-java
+  h2:
+    console:
+      path: /h2
+      enabled: true
