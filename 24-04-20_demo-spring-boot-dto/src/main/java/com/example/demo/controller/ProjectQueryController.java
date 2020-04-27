@@ -3,10 +3,10 @@ package com.example.demo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -51,5 +51,23 @@ public class ProjectQueryController
 	public ResponseEntity<Object> updateProjectBy(@RequestBody Project project)
 	{
 		return new ResponseEntity<>(projQuery.updateProject(project),HttpStatus.OK);
+	}
+	
+	/*@GetMapping("/projectsByName/{name}")
+	public ResponseEntity<Iterable<Project>> getProjectByName(@PathVariable("name") String name)
+	{
+		return ResponseEntity.ok().body(projQuery.findByName(name));
+	}*/
+	
+	@GetMapping("/projectsByName/{name}")
+	public ProjectQueryDTO getProjectByName(@PathVariable("name") String name)
+	{
+		return projQuery.findByName(name);
+	}
+	
+	@DeleteMapping("/projects/{name}")
+	public void removeByName(@PathVariable("name") String name)
+	{
+		projQuery.removeByName(name);
 	}
 }

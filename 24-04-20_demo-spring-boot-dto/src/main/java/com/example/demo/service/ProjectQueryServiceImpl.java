@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.dto.ProjectQueryDTO;
 import com.example.demo.entity.Project;
@@ -62,5 +63,38 @@ public class ProjectQueryServiceImpl implements ProjectQueryService
 			return projectRepo.save(project);
 		}
 		return null;
+	}
+
+	/*@Override
+	public Iterable<Project> findByName(String name) 
+	{
+		return projectRepo.findByName(name);
+	}*/
+
+	@Override
+	public Iterable<Project> findByAgentName(String agentName) 
+	{
+		return projectRepo.findByAgentName(agentName);
+	}
+
+	@Override
+	@Transactional
+	public void removeByName(String name) 
+	{
+		projectRepo.removeByName(name);
+	}
+
+	@Override
+	public ProjectQueryDTO findByName(String name) 
+	{
+		Iterable<Project> project = projectRepo.findByName(name);
+		ProjectQueryDTO proj = new ProjectQueryDTO();
+		for(Project p : project)
+		{
+			proj.setName(p.getName());
+			proj.setAgentName(p.getAgentName());
+		}
+		
+		return proj;
 	}
 }

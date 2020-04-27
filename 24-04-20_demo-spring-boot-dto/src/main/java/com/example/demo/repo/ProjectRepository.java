@@ -8,5 +8,9 @@ import com.example.demo.entity.Project;
 @Repository
 public interface ProjectRepository extends CrudRepository<Project, Integer>
 {
-
+	public Iterable<Project> findByName(String name);
+	
+	public Iterable<Project> findByAgentName(String agentName);
+	
+	public void removeByName(String name);
 }

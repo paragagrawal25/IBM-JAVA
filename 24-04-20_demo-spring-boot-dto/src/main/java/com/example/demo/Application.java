@@ -26,10 +26,10 @@ public class Application implements CommandLineRunner
 	@Override
 	public void run(String... args) throws Exception 
 	{
-		/*projectRepo.save(new Project("demo project 1", "demo description-1", "demo agent-1"));
+		projectRepo.save(new Project("demo project 1", "demo description-1", "demo agent-1"));
 		projectRepo.save(new Project("demo project 2", "demo description-2", "demo agent-2"));
-		projectRepo.save(new Project("demo project 3", "demo description-3", "demo agent-3"));
-		projectRepo.save(new Project("demo project 4", "demo description-4", "demo agent-4"));*/
+		projectRepo.save(new Project("demo project 1", "demo description-3", "demo agent-3"));
+		projectRepo.save(new Project("demo project 4", "demo description-4", "demo agent-4"));
 	}
 
 }
