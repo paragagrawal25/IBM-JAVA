@@ -7,3 +7,8 @@ spring:
     level:
       org.springframework: WARN
       org.hibernate: WARN    
+  boot:
+    admin:
+      client:
+        url:
+        - http://localhost:1111
