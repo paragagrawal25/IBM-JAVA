@@ -8,15 +8,21 @@ endpoints:
   health:
     sensitive: false
 
+security:  basic:    enabled: false
+management:  security:    enabled: false
+
 zuul:
-  prefix: /api
+  ##prefix: /api
   routes:
     account: 
       path: /account/**
       serviceId: account-service
     customer: 
       path: /customer/**
-      serviceId: customer-service          
+      serviceId: customer-service    
+    movie:
+      path: /movie/**
+      serviceId: movie-service      
 
 ribbon:
   eureka:
@@ -26,7 +32,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
-    registerWithEureka: false
+    registerWithEureka: true
       
 server:
   port: 8765
