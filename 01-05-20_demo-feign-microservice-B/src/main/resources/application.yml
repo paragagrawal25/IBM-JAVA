@@ -1,0 +1,13 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: service-B
+  cloud:
+    consul:
+      discovery:
+        register: true
+        service-name: service-B
+      host: localhost
+      port: 8500  h2:    console:      enabled: true
+      path: /h2
